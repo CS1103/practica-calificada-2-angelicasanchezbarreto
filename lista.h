@@ -19,10 +19,10 @@ public:
     ~Lista()= default;
 
     void insert(param);
-    void insert_v(param&&...);
+    //void insert_v(param&&...);
     //void push_back(T*);
 
-    void vaciar();
+    void clear();
 
     T* pop_front();
     T* pop_back();
@@ -44,7 +44,7 @@ Lista<T, param>::Lista() {
 }
 
 template<typename T, typename param>
-void Lista<T, param>::vaciar()
+void Lista<T, param>::clear()
 {
     auto aux = this->top;
     if(this->top!= nullptr)

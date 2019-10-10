@@ -27,13 +27,14 @@ void load_from(const string & file_name, Lista<T,param> & lista)
     file_lista.close();
     }
     else{
-        lista.vaciar();
+        lista.clear();
     }
 }
 
 
 template <typename param>
-ostream& operator<< (ostream& out, Lista<Nodo<param>,param> lista) {
+ostream& operator<< (ostream& out, Lista<Nodo<param>,param> lista)
+{
     auto aux = lista.front();
     for(int i=0; i< lista.Size(); i++)
     {
@@ -44,8 +45,19 @@ ostream& operator<< (ostream& out, Lista<Nodo<param>,param> lista) {
     return out;
 }
 
-template <typename T, typename param>
-istream& operator>> (ostream& out, Lista<T,param> lista);
+template <typename param>
+istream& operator>> (istream& in, Lista<Nodo<param>,param> lista)
+{
+    cout << "Ingresa un valor: ";
+    int a=0;
+    in >> a;
+    //auto n1 = new Nodo<param>(a);
+
+    //a = n1->dato;
+    lista.insert(a);
+    return in;
+}
+
 
 
 #endif //CS1103_PC2_201902_OPERATORS_H
